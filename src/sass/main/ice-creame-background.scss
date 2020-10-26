@@ -1,0 +1,58 @@
+@import "../variables";
+@import "../mixins";
+
+.ice-creame-background {
+  height: 915px;
+  width: 100%;
+
+  &__img-wrapper {
+    width: 100%;
+    height: 80%;
+
+    background-image: url(../img/bg.webp);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-color: #b5e8d5;
+    position: relative;
+  }
+  &__text {
+    height: 13%;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    & span {
+      font-size: 38px;
+      font-weight: bold;
+    }
+  }
+  &__img {
+    width: 100%;
+    height: 100%;
+    background-image: url(../img/baac51_ec98ba3fb62b4140be49e8c2fde05a73.webp);
+    background-position: center;
+    background-size: 67%;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 10%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .ice-creame-background {
+    height: 450px;
+    &__img-wrapper {
+      background-attachment: unset;
+    }
+    &__img {
+      top: -5%;
+    }
+    &__text {
+      & span {
+        font-size: 30px;
+      }
+    }
+  }
+}

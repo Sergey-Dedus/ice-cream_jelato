@@ -1,0 +1,241 @@
+@import "./variables";
+@import "./mixins";
+
+.page-header {
+  &__adress-and-time-wrapper {
+    background-color: $header-footer-bg-color;
+    width: 100%;
+    height: 62px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &__adress-and-time {
+    color: $header-footer-color;
+    font-weight: bold;
+  }
+  &__wrapper {
+    position: relative;
+    z-index: 2;
+  }
+}
+
+.main-header {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__menu {
+    position: fixed;
+    left: 5%;
+    // top: 50%;
+    // transform: translate(-50%, -50%);
+  }
+  &__logo {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  &__logo span {
+    font-family: "Marck Script", cursive;
+    font-size: 40px;
+    color: #000000;
+  }
+  &__social {
+    position: fixed;
+    right: 5%;
+    display: flex;
+    justify-content: space-between;
+    width: 120px;
+    // top: 50%;
+    // transform: translate(-50%, -50%);
+  }
+  &__social-link {
+    @include socialHeader();
+    transition: 0.5s;
+    cursor: pointer;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
+
+.menu {
+  &__list {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    justify-content: space-between;
+    width: 380px;
+  }
+
+  &__link {
+    font-size: 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #2f2e2e;
+    transition: color 0.4s ease 0s;
+    cursor: pointer;
+    &:hover {
+      color: #706d6d;
+      transition: color 0.4s ease 0s;
+    }
+  }
+}
+
+#menu__link_current {
+  color: #706d6d;
+}
+
+.page-header-mobile {
+  display: none;
+}
+
+@media screen and (max-width: 1010px) {
+  .main-header {
+    &__logo {
+      left: 65%;
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .page-header {
+    display: none;
+  }
+
+  .page-header-mobile {
+    display: block;
+    &__adress-and-time-wrapper {
+      background-color: $header-footer-bg-color;
+      width: 100%;
+      height: 65px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    &__adress-and-time {
+      color: $header-footer-color;
+      font-weight: bold;
+    }
+    &__main-header {
+      height: 65px;
+      width: 100%;
+      background-color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+    &__logo span {
+      font-family: "Marck Script", cursive;
+      font-size: 30px;
+      color: #000000;
+    }
+  }
+
+  .window-mobile {
+    width: 90vw;
+    height: 192px;
+    background-color: rgba(36, 35, 35, 0.9);
+    position: absolute;
+    top: 85%;
+    z-index: 2;
+    left: 52%;
+    transform: translateX(-50%);
+    min-width: 278px;
+    display: none;
+    &__list {
+      list-style: none;
+    }
+    &__title {
+      height: 48px;
+      display: flex;
+      align-items: center;
+      border: 1px solid #fff;
+      padding-left: 17px;
+    }
+    &__link {
+      text-transform: uppercase;
+      color: $color-title;
+      font-family: Arial, Helvetica, sans-serif;
+      width: 100%;
+    }
+  }
+
+  // ================
+  .window-mobile.is-active {
+    display: block;
+    width: 90vw;
+    height: 192px;
+    background-color: rgba(36, 35, 35, 0.9);
+    position: absolute;
+    top: 85%;
+    z-index: 2;
+    left: 52%;
+    transform: translateX(-50%);
+    min-width: 278px;
+    &__list {
+      list-style: none;
+    }
+    &__title {
+      height: 48px;
+      display: flex;
+      align-items: center;
+      border: 1px solid #fff;
+      padding-left: 17px;
+    }
+    &__link {
+      text-transform: uppercase;
+      color: $color-title;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+  }
+  // =============
+  #window-mobile__link_current {
+    color: $header-footer-bg-color;
+  }
+  .window-mobile__title_current {
+    background-color: rgba(232, 232, 232, 0.9);
+  }
+
+  .menu-mobile {
+    height: 20px;
+    width: 20px;
+    background-color: #fff;
+    position: absolute;
+    left: 90%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 0;
+    border: none;
+    &__line {
+      width: 100%;
+      height: 3px;
+      background-color: $header-footer-bg-color;
+      position: relative;
+      &::before {
+        @include lineMobile();
+        top: -8px;
+      }
+      &::after {
+        @include lineMobile();
+        top: 8px;
+      }
+    }
+    &__line.is-active {
+      background-color: transparent;
+      &::before {
+        transform: rotate(45deg);
+        top: 0;
+      }
+      &::after {
+        transform: rotate(-45deg);
+        top: 0;
+      }
+    }
+  }
+}

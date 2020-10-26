@@ -1,0 +1,125 @@
+@import "../variables";
+@import "../mixins";
+
+.menu-ice-cream {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.types-margin {
+  margin-top: 110px;
+}
+
+.vegetarian-margin {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.types {
+  max-width: 1000px;
+
+  &__title {
+    font-size: $size-title-description;
+    text-transform: uppercase;
+    text-align: center;
+    position: relative;
+    &::after {
+      border-bottom: 2px solid #000000;
+      position: absolute;
+      top: 130%;
+      left: 50%;
+      width: 100px;
+      transform: translateX(-50%);
+      content: "";
+    }
+    &_mobile {
+      display: none;
+    }
+  }
+}
+
+.grid-menu {
+  margin-top: 25px;
+  width: 100%;
+
+  display: flex;
+  flex-wrap: wrap;
+  &__col-1 {
+    width: 33.3333%;
+  }
+  &__wrap {
+    margin: 0 30px 50px 30px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.text-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: $text-description;
+  &__title {
+    font-size: $size-subtitle-description;
+    text-transform: uppercase;
+    position: relative;
+    font-weight: 700;
+    text-align: center;
+
+    &::after {
+      border-bottom: 2px solid $text-description;
+      position: absolute;
+      top: 130%;
+      left: 50%;
+      width: 190px;
+      transform: translateX(-50%);
+      content: "";
+    }
+  }
+  &__info {
+    margin-top: 25px;
+    font-weight: 700;
+    text-align: center;
+  }
+  &__price {
+    font-size: $size-subtitle-description;
+    margin-top: 25px;
+    font-weight: 700;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .types-margin {
+    margin-top: 80px;
+  }
+
+  .types {
+    &__title {
+      &_mobile {
+        display: block;
+      }
+      &::after {
+        top: 110%;
+      }
+    }
+  }
+
+  .grid-menu {
+    &__col-1 {
+      width: 50%;
+    }
+  }
+}
+
+@media screen and (max-width: 467px) {
+  .grid-menu {
+    &__col-1 {
+      width: 100%;
+    }
+  }
+}

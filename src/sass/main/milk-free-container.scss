@@ -1,0 +1,88 @@
+@import "../variables";
+@import "../mixins";
+
+.milk-free-container {
+  width: 100%;
+  height: 780px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #b5e8d5;
+  background-image: url(../img/milk-free.webp);
+  background-position: center;
+  background-size: 75%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  &__text-wrapper {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+  }
+  &__title {
+    &_small {
+      @include titleSmall();
+      position: absolute;
+      left: 50%;
+      top: 15%;
+      transform: translateX(-50%);
+    }
+    &_big {
+      @include titleBig();
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+  &__btn {
+    @include btn();
+    border: 1px solid white;
+    color: $color-title;
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translateX(-50%);
+    &:hover {
+      @include btnHover();
+    }
+  }
+}
+
+@media screen and (max-width: 870px) {
+  .milk-free-container {
+    &__title {
+      &_big {
+        font-size: 90px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .milk-free-container {
+    height: 450px;
+    background-attachment: unset;
+    background-size: cover;
+    &__text-wrapper {
+      height: 100%;
+    }
+    &__title {
+      &_small {
+        font-size: $mobile-size-title-small;
+        top: 2%;
+      }
+      &_big {
+        font-size: $mobile-size-title-big;
+        top: 15%;
+      }
+    }
+    &__btn {
+      @include btnMobile();
+      top: 85%;
+    }
+  }
+}

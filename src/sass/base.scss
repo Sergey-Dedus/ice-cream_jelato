@@ -1,0 +1,50 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Marck+Script&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  font-family: "Open Sans Condensed", sans-serif;
+  font-style: normal;
+}
+
+h1,
+h2,
+h3,
+h4,
+ul,
+ol,
+p,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+input,
+button,
+a {
+  outline: none;
+}
+
+button,
+input {
+  font-size: 16px;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  background: #ffffff;
+  color: #2f2e2e;
+}
+
+@media screen and (max-width: 767px) {
+  html {
+    min-width: 360px;
+  }
+}

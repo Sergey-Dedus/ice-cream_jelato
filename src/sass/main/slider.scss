@@ -1,0 +1,101 @@
+@import "../variables";
+@import "../mixins";
+
+.slider {
+  width: 100%;
+  height: 480px;
+  position: relative;
+  overflow: hidden;
+  &:hover .slider__control {
+    display: flex;
+  }
+
+  &__wrapper {
+    display: flex;
+    transition: transform 0.6s ease;
+    height: 100%;
+  }
+
+  &__item {
+    flex: 0 0 33.3333%;
+    max-width: 33.33333%;
+    height: 100%;
+  }
+}
+
+.test {
+  height: 100%;
+}
+
+.test-img {
+  height: 100%;
+  width: 100%;
+}
+
+.slider__control {
+  display: none;
+  transition: all 2s ease;
+  position: absolute;
+  top: 50%;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  color: #fff;
+  text-align: center;
+  opacity: 0.5;
+  height: 50px;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
+
+.slider__control_left {
+  left: 0;
+}
+
+.slider__control_right {
+  right: 0;
+}
+
+.slider__control:hover {
+  opacity: 1;
+}
+
+.slider__control::before {
+  content: "";
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: transparent no-repeat center center;
+  background-size: 100% 100%;
+}
+
+.slider__control_left::before {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
+}
+
+.slider__control_right::before {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
+}
+
+@media screen and (max-width: 767px) {
+  .slider {
+    height: 405px;
+    &__item {
+      flex: 0 0 50%;
+      max-width: 50%;
+    }
+  }
+  .slider__control {
+    display: flex;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .slider {
+    &__item {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+  }
+}

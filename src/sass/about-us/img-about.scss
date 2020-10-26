@@ -1,0 +1,16 @@
+@import "../variables";
+@import "../mixins";
+
+.img-about {
+  width: 100%;
+  height: 650px;
+  background-image: url(../img/about.webp);
+  @include imgEventsAbove();
+}
+
+@media screen and (max-width: 767px) {
+  .img-about {
+    height: 400px;
+    background-attachment: unset;
+  }
+}

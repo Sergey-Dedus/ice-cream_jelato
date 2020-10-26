@@ -1,0 +1,101 @@
+@import "../variables";
+@import "../mixins";
+
+.come-container {
+  height: 651px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+
+  &__img-wrap {
+    width: 50%;
+    height: 100%;
+    background-image: url(../img/84770f_63ca1eacd5f54763a266562f45c05727.webp);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  &__description-come-wrapper {
+    width: 50%;
+    height: 50%;
+    padding-right: 7%;
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+
+.description-come {
+  width: 317px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  &__title-wrapper {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  &__title {
+    font-size: $size-title-description;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  &__subtitle {
+    font-size: $size-subtitle-description;
+    font-family: "Marck Script", cursive;
+    font-weight: normal;
+  }
+  &__description {
+    font-weight: bold;
+    text-align: center;
+    line-height: 1.6em;
+  }
+  &__btn {
+    border: 1px solid $text-description;
+    color: $text-description;
+    @include btn();
+    width: 150px;
+    &:hover {
+      @include btnHover();
+      color: $color-title;
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .come-container {
+    flex-direction: column;
+    height: auto;
+    &__img-wrap {
+      height: 250px;
+      width: 100%;
+    }
+    &__description-come-wrapper {
+      height: 377px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-right: 0;
+    }
+  }
+  .description-come {
+    width: 260px;
+    height: 80%;
+    &__title {
+      font-size: $mobile-size-title-description;
+    }
+    &__description {
+      font-size: $mobile-size-text-description;
+    }
+    &__btn {
+      @include btnMobile();
+    }
+  }
+}
